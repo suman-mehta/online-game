@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अंतरिक्ष बाधा दौड़: फ़ाइनल वर्ज़न</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="start-screen">
+        <h1>अंतरिक्ष बाधा दौड़</h1>
+        <p class="high-score-display">हाई स्कोर: <span id="start-high-score">0</span></p>
+        <button id="start-button">गेम शुरू करें</button>
+    </div>
+
+    <div id="game-area" class="hidden">
+        <div id="game-container">
+            <div id="player"></div>
+            <div id="timer-bar-container">
+                <div id="timer-bar"></div>
+            </div>
+            <div id="pause-screen" class="hidden"><p>PAUSED</p></div>
+            <div id="game-over" class="hidden">
+                <p>गेम खत्म!</p>
+                <p>आपका स्कोर: <span id="final-score">0</span></p>
+                <p class="high-score-display">हाई स्कोर: <span id="end-high-score">0</span></p>
+                <button onclick="location.reload()">फिर से खेलें</button>
+            </div>
+        </div>
+        <div class="score-board">
+            <p>स्कोर: <span id="score">0</span></p>
+        </div>
+    </div>
+
+    <audio id="background-music" src="https://www.chosic.com/wp-content/uploads/2021/07/The-Mysterious-Quasar.mp3" loop></audio>
+    <audio id="explosion-sound" src="https://www.chosic.com/wp-content/uploads/2022/03/explosion-sound.mp3"></audio>
+    <audio id="shield-sound" src="https://www.chosic.com/wp-content/uploads/2022/01/power-up-sound-effect.mp3"></audio>
+    <audio id="slowmo-sound" src="https://www.chosic.com/wp-content/uploads/2022/01/video-game-magic-spell-sound-effect.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
