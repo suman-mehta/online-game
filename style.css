@@ -1,0 +1,89 @@
+body {
+    display: flex; justify-content: center; align-items: center;
+    height: 100vh;
+    background-image: url('https://i.ibb.co/3s6hRk7/space-background.gif');
+    background-size: cover; color: white;
+    font-family: 'Press Start 2P', cursive; overflow: hidden;
+}
+.hidden { display: none; }
+
+/* --- स्क्रीन और UI --- */
+#start-screen, #game-area { text-align: center; }
+#start-screen h1 { font-size: 2.5em; color: #00e5ff; text-shadow: 3px 3px 10px #6c00ff; }
+#start-button { padding: 15px 30px; font-size: 1.5em; cursor: pointer; background-color: #ff4d4d; color: white; border: 3px solid white; border-radius: 10px; font-family: 'Press Start 2P', cursive; }
+.high-score-display { font-size: 1.2em; color: #ffeb3b; margin-top: 20px; }
+.score-board { margin-top: 15px; font-size: 1.5em; text-shadow: 2px 2px 5px #000; }
+
+/* --- गेम कंटेनर --- */
+#game-container {
+    width: 400px; height: 600px;
+    background: transparent; border: 3px solid #6c00ff;
+    position: relative; overflow: hidden;
+    box-shadow: 0 0 25px #6c00ff, inset 0 0 20px #6c00ff;
+}
+@keyframes screenShake { /* स्क्रीन शेक एनिमेशन */
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+.shake { animation: screenShake 0.3s; }
+
+/* --- खिलाड़ी और पावर-अप्स --- */
+#player {
+    width: 60px; height: 60px;
+    background-image: url('https://i.ibb.co/9TRd7Vv/player-ship.png');
+    background-size: contain; background-repeat: no-repeat;
+    position: absolute; bottom: 10px; left: 170px;
+    transition: box-shadow 0.3s;
+}
+.shield-active { box-shadow: 0 0 25px 10px #00e5ff; border-radius: 50%; }
+
+/* --- दुश्मन --- */
+.meteor {
+    width: 45px; height: 45px;
+    background-image: url('https://i.ibb.co/dKqgL7T/meteor.png');
+    background-size: contain; background-repeat: no-repeat;
+    position: absolute;
+}
+.tracker { /* ट्रैकिंग मिसाइल */
+    width: 25px; height: 50px;
+    background-image: url('https://i.ibb.co/GvxYkcs/tracker-missile.png'); /* नई इमेज */
+    background-size: contain; background-repeat: no-repeat;
+    position: absolute;
+}
+
+/* --- पावर-अप्स --- */
+.shield-powerup {
+    width: 40px; height: 40px;
+    background-image: url('https://i.ibb.co/3YY7v1b/shield-powerup.png');
+    background-size: contain; background-repeat: no-repeat; position: absolute;
+    box-shadow: 0 0 20px yellow; border-radius: 50%;
+}
+.slowmo-powerup { /* स्लो-मोशन पावर-अप */
+    width: 40px; height: 40px;
+    background-image: url('https://i.ibb.co/P9tGkfb/slowmo-powerup.png'); /* नई इमेज */
+    background-size: contain; background-repeat: no-repeat; position: absolute;
+    box-shadow: 0 0 20px cyan; border-radius: 50%;
+}
+
+/* --- ओवरले और टाइमर --- */
+#pause-screen, #game-over {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 20, 0.85);
+    padding: 30px; border-radius: 15px; text-align: center;
+    border: 5px solid #ff4d4d;
+}
+#pause-screen p { font-size: 2.5em; color: #ffeb3b; }
+
+#timer-bar-container {
+    position: absolute; bottom: 5px; left: 50%;
+    transform: translateX(-50%); width: 150px; height: 10px;
+    background-color: rgba(255, 255, 255, 0.2); border-radius: 5px;
+    display: none; /* शुरुआत में छिपा हुआ */
+}
+#timer-bar {
+    width: 100%; height: 100%; background-color: #00e5ff;
+    border-radius: 5px; transition: width 0.1s linear;
+}
+
